@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Superchallenge Full Leaderboard",
+  "version": "2.3.1",
+  "description": "Full scrollable leaderboard on superchallenge.io race pages, change tracking, and desktop notifications on leaderboard updates.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://superchallenge.io/play/*"
+      ],
+      "js": [
+        "seed.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "storage",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://superchallenge.io/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "icon128.png"
+  }
+}

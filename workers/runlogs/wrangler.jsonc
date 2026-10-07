@@ -1,0 +1,11 @@
+{
+  "name": "aw-runlogs",
+  "main": "src/index.js",
+  "workers_dev": true,
+  "preview_urls": false,
+  "compatibility_date": "2026-09-01",
+  "triggers": { "crons": ["*/5 * * * *"] }, // no-logs alarm (reads our D1 only, never the game)
+  "vars": { "ALARM_UNTIL": "2026-10-07T16:30:00Z" },
+  "placement": { "region": "aws:eu-central-1" },
+  "d1_databases": [{ "binding": "DB", "database_name": "aw-runlogs", "database_id": "<D1_DATABASE_ID>" }]
+}

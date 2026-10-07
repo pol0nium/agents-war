@@ -1,0 +1,14 @@
+{
+  "name": "aw-lbwatch",
+  "main": "src/index.js",
+  "workers_dev": true,
+  "preview_urls": false,
+  "compatibility_date": "2026-09-01",
+  // Leaderboard watcher: 1-min cron, each run polls getPublicLeaderboard every 10 s (ONE request per poll), ntfy push on change.
+  // To stop: set "crons": [] and redeploy, or `npx wrangler delete aw-lbwatch`.
+  "triggers": { "crons": ["*/5 * * * *"] },
+  // no placement hint needed (tried aws:eu-central-1; the ntfy 429 below happens from every Cloudflare egress)
+  "d1_databases": [{ "binding": "DB", "database_name": "aw-lbwatch", "database_id": "<D1_DATABASE_ID>" }]
+  // secrets: NTFY_TOPIC; optional NTFY_TOKEN (ntfy.sh account access token: publishes then count against that account,
+  // not the shared Cloudflare egress IP whose ntfy daily quota is exhausted → 429 "daily message quota reached")
+}

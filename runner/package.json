@@ -1,0 +1,14 @@
+{
+  "name": "agents-war-runner",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync_chase.cjs",
+    "deploy": "node scripts/sync_chase.cjs && npx vercel@latest deploy --prod --yes"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.8.0",
+    "@vercel/functions": "^3.9.9",
+    "undici": "^8.11.2"
+  }
+}
